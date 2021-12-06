@@ -13,8 +13,8 @@ libyuv::YuvConstants serializeConstants(const Napi::Object &obj) {
     libyuv::YuvConstants constants;
 
     #if defined(__aarch64__) || defined(__arm__)
-    copy_to_array(constants.kUVCoeff, obj.Get("kUVCoeff").As<Napi::Int8Array>().Data());
-    copy_to_array(constants.kRGBCoeffBias, obj.Get("kRGBCoeffBias").As<Napi::Int16Array>().Data());
+    //copy_to_array(constants.kUVCoeff, obj.Get("kUVCoeff").As<Napi::Int8Array>().Data());
+    //copy_to_array(constants.kRGBCoeffBias, obj.Get("kRGBCoeffBias").As<Napi::Int16Array>().Data());
     #else
     copy_to_array(constants.kUVBiasB, obj.Get("kUVBiasB").As<Napi::Int16Array>().Data());
     copy_to_array(constants.kUVBiasG, obj.Get("kUVBiasG").As<Napi::Int16Array>().Data());
