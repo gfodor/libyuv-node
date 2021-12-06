@@ -264,7 +264,7 @@ Napi::Value RotateUV270(const Napi::CallbackInfo& info) {
     auto width          = info[6]   .As<Napi::Number>()     .Int32Value();
     auto height         = info[7]   .As<Napi::Number>()     .Int32Value();
 
-    libyuv::RotateUV270(
+    libyuv::SplitRotateUV270(
         src.Data(),
         src_stride,
         dst_a.Data(),
