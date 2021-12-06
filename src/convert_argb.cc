@@ -8,10 +8,14 @@ void copy_to_array(T (&dest)[N], T *src) {
         dest[i] = src[i];
 }
 
-#if defined(__aarch64__) || defined(__arm__)
-#else
+
 libyuv::YuvConstants serializeConstants(const Napi::Object &obj) {
     libyuv::YuvConstants constants;
+
+    #if defined(__aarch64__) || defined(__arm__)
+    copy_to_array(constants.kUVCoeff, obj.Get("kUVCoeff").As<Napi::Int8Array>().Data());
+    copy_to_array(constants.kRGBCoeffBias, obj.Get("kRGBCoeffBias").As<Napi::Int16Array>().Data());
+    #else
     copy_to_array(constants.kUVBiasB, obj.Get("kUVBiasB").As<Napi::Int16Array>().Data());
     copy_to_array(constants.kUVBiasG, obj.Get("kUVBiasG").As<Napi::Int16Array>().Data());
     copy_to_array(constants.kUVBiasR, obj.Get("kUVBiasR").As<Napi::Int16Array>().Data());
@@ -20,10 +24,10 @@ libyuv::YuvConstants serializeConstants(const Napi::Object &obj) {
     copy_to_array(constants.kUVToR, obj.Get("kUVToR").As<Napi::Int8Array>().Data());
     copy_to_array(constants.kYBiasToRgb, obj.Get("kYBiasToRgb").As<Napi::Int16Array>().Data());
     copy_to_array(constants.kYToRgb, obj.Get("kYToRgb").As<Napi::Int16Array>().Data());
+    #endif
 
     return constants;
 }
-#endif
 
 Napi::Value ARGBCopy(const Napi::CallbackInfo& info) {
     auto src_y            = info[0]   .As<Napi::Uint8Array>() ;
