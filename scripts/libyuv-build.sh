@@ -13,7 +13,7 @@ if ! [ -d libyuv ]; then
     git clone https://chromium.googlesource.com/libyuv/libyuv
 fi
 cd libyuv
-git checkout 5e05f26a2bcacc5d34ee5786e25efee2493003cc # gfodor - working commit
+git checkout 95ff456c3335c2c541e2bc5038a2b01eea08c  # gfodor - working commit
 mkdir -p out
 cd out
 
