@@ -216,7 +216,7 @@ Napi::Value RotateUV90(const Napi::CallbackInfo& info) {
     auto width          = info[6]   .As<Napi::Number>()     .Int32Value();
     auto height         = info[7]   .As<Napi::Number>()     .Int32Value();
 
-    libyuv::SplitRotateUV90(
+    libyuv::RotateUV90(
         src.Data(),
         src_stride,
         dst_a.Data(),
@@ -240,7 +240,7 @@ Napi::Value RotateUV180(const Napi::CallbackInfo& info) {
     auto width          = info[6]   .As<Napi::Number>()     .Int32Value();
     auto height         = info[7]   .As<Napi::Number>()     .Int32Value();
 
-    libyuv::SplitRotateUV180(
+    libyuv::RotateUV180(
         src.Data(),
         src_stride,
         dst_a.Data(),
@@ -264,7 +264,7 @@ Napi::Value RotateUV270(const Napi::CallbackInfo& info) {
     auto width          = info[6]   .As<Napi::Number>()     .Int32Value();
     auto height         = info[7]   .As<Napi::Number>()     .Int32Value();
 
-    libyuv::SplitRotateUV270(
+    libyuv::RotateUV270(
         src.Data(),
         src_stride,
         dst_a.Data(),
@@ -308,7 +308,7 @@ Napi::Value TransposeUV(const Napi::CallbackInfo& info) {
     auto width          = info[6]   .As<Napi::Number>()     .Int32Value();
     auto height         = info[7]   .As<Napi::Number>()     .Int32Value();
 
-    libyuv::SplitTransposeUV(
+    libyuv::TransposeUV(
         src.Data(),
         src_stride,
         dst_a.Data(),
