@@ -2131,6 +2131,16 @@ export function ARGB4444ToI420(
     height: number
 ): number;
 
+/** Convert ARGB to UYVY. */
+export function UYVYToARGB(
+    src_argb: Uint8Array,
+    src_stride_argb: number,
+    dst_uyvy: Uint8Array,
+    dst_stride_uyvy: number,
+    width: number,
+    height: number
+): number;
+
 /** RGB little endian (bgr in memory) to J400. */
 export function RGB24ToJ400(
     src_rgb24: Uint8Array,

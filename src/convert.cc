@@ -555,6 +555,26 @@ Napi::Value ARGBToI420(const Napi::CallbackInfo& info) {
     return Napi::Number::New(info.Env(), retval);
 }
 
+Napi::Value ARGBToUYVY(const Napi::CallbackInfo& info) {
+    auto src_argb         = info[0]   .As<Napi::Uint8Array>() ;
+    auto src_stride_argb  = info[1]   .As<Napi::Number>()     .Int32Value();
+    auto dst_uyvu         = info[2]   .As<Napi::Uint8Array>() ;
+    auto dst_stride_uyvu  = info[3]   .As<Napi::Number>()     .Int32Value();
+    auto width            = info[4]   .As<Napi::Number>()     .Int32Value();
+    auto height           = info[5]   .As<Napi::Number>()     .Int32Value();
+
+    auto retval = libyuv::ARGBToUYVY(
+        src_argb.Data(),
+        src_stride_argb,
+        dst_uyvu.Data(),
+        dst_stride_uyvu,
+        width,
+        height
+    );
+
+    return Napi::Number::New(info.Env(), retval);
+}
+
 Napi::Value BGRAToI420(const Napi::CallbackInfo& info) {
     auto src_bgra           = info[0].As<Napi::Uint8Array>();
     auto src_stride_bgra    = info[1].As<Napi::Number>().Int32Value();

@@ -222,6 +222,12 @@ Napi::Value RAWToJ400(const Napi::CallbackInfo&);
 Napi::Value MJPGToI420(const Napi::CallbackInfo&);
 
 /** 
+ * ARGB little endian (bgra in memory) to UYVY.
+ * Usage: 
+ */
+Napi::Value ARGBToUYVY(const Napi::CallbackInfo&);
+
+/** 
  * JPEG to NV21
  * Usage: 
  */

@@ -35,6 +35,7 @@ static Napi::Object Init(Napi::Env env, Napi::Object exports) {
     exports.Set("ABGRToI420", Napi::Function::New(env, ABGRToI420));
     exports.Set("RGBAToI420", Napi::Function::New(env, RGBAToI420));
     exports.Set("RGB24ToI420", Napi::Function::New(env, RGB24ToI420));
+    exports.Set("ARGBToUYVY", Napi::Function::New(env, ARGBToUYVY));
     exports.Set("RGB24ToJ420", Napi::Function::New(env, RGB24ToJ420));
     exports.Set("RAWToI420", Napi::Function::New(env, RAWToI420));
     exports.Set("RGB565ToI420", Napi::Function::New(env, RGB565ToI420));
